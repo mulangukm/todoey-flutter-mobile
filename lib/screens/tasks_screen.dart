@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/tasks_list.dart';
+
 class TasksScreen extends StatelessWidget {
-  TasksScreen({Key? key}) : super(key: key);
+  const TasksScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -9,7 +11,7 @@ class TasksScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.lightBlueAccent,
         onPressed: () {},
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
       backgroundColor: Colors.lightBlueAccent,
       body: Column(
@@ -52,6 +54,7 @@ class TasksScreen extends StatelessWidget {
           ),
           Expanded(
             child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
               width: double.infinity,
               decoration: const BoxDecoration(
                 color: Colors.white,
@@ -60,28 +63,7 @@ class TasksScreen extends StatelessWidget {
                   topRight: Radius.circular(20.0),
                 ),
               ),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                child: ListView(
-                  children: [
-                    ListTile(
-                      onTap: () {},
-                      leading: Text('Buy Milk'),
-                      trailing: Icon(Icons.check_box_outline_blank),
-                    ),
-                    ListTile(
-                      onTap: () {},
-                      leading: Text('Buy eggs'),
-                      trailing: Icon(Icons.check_box_outline_blank),
-                    ),
-                    ListTile(
-                      onTap: () {},
-                      leading: Text('Buy Bread'),
-                      trailing: Icon(Icons.check_box_outline_blank),
-                    )
-                  ],
-                ),
-              ),
+              child: TasksList(),
             ),
           )
         ],
